@@ -732,6 +732,11 @@
           this.closeSearchOptions()
           return
         }
+        // Fixed bug where no-options message could not be closed
+        if (this.search.length === 0 && this.options.length === 0){
+          this.closeSearchOptions()
+          return
+        }
       },
 
       /**
@@ -763,7 +768,6 @@
        */
       onMouseUp() {
         this.mousedown = false
-        this.searchEl.focus()
       },
 
       /**
